@@ -43,6 +43,25 @@ function update() {
 
 }
 
+
+const slides1 = document.querySelectorAll('.slide');
+const modal = document.getElementById('customAlert');
+const okBtn = document.getElementById('okBtn');
+const bottom = document.getElementById('slide-down');
+
+slides1.forEach(slide => {
+    slide.addEventListener('click', () => {
+        modal.style.display = 'flex';
+    });
+});
+
+okBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    bottom.scrollIntoView({ behavior: 'smooth' });
+});
+
+
+
 function nextSlide() {
     index++
     if (index >= slides.length) index = 0
