@@ -28,14 +28,13 @@ body {
     border-radius: 50%;
     opacity: 0.9;
     filter: blur(1px);
-    box-shadow: 
+    box-shadow:
         0 0 6px gold,
         0 0 12px orange,
         0 0 18px gold;
     animation: rise linear infinite;
 }
 
-/* animasi naik */
 @keyframes rise {
     0% {
         transform: translateY(0) scale(1);
@@ -48,7 +47,7 @@ body {
     }
 }
 
-/* NAVBAR */
+
 .navbar {
     background: linear-gradient(90deg, #222, #111);
     text-align: center;
@@ -64,8 +63,6 @@ body {
     display: block;
 }
 
-/* RUNNING TEXT */
-
 .marquee {
     margin-top: 10px;
     overflow: hidden;
@@ -80,7 +77,7 @@ body {
     display: inline-block;
     padding-left: 100%;
     animation: marquee 25s linear infinite;
-    
+
 }
 
 @keyframes marquee {
@@ -93,7 +90,6 @@ body {
     }
 }
 
-/* CAROUSEL */
 
 .carousel {
     position: relative;
@@ -135,7 +131,6 @@ body {
     transform: scale(1.05);
 }
 
-/* posisi */
 
 .slide.center {
     opacity: 1;
@@ -150,7 +145,6 @@ body {
     z-index: 1;
 }
 
-/* ARROWS */
 
 .nav {
     position: absolute;
@@ -175,14 +169,80 @@ body {
     right: 10px
 }
 
-/* GAME LIST */
+.modal {
+    display: none;
+
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.modal-content {
+    background-color: #111;
+    padding: 25px 40px;
+    border-radius: 15px;
+    text-align: center;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 20px;
+    color: gold;
+    position: relative;
+    border: 4px solid gold;
+    box-shadow: 0 0 20px gold, 0 0 40px orange, 0 0 60px red;
+    animation: glowBorder 1.5s infinite alternate;
+}
+
+
+@keyframes glowBorder {
+    0% {
+        box-shadow: 0 0 20px gold, 0 0 40px orange, 0 0 60px red;
+    }
+
+    50% {
+        box-shadow: 0 0 30px gold, 0 0 50px orange, 0 0 70px red;
+    }
+
+    100% {
+        box-shadow: 0 0 20px gold, 0 0 40px orange, 0 0 60px red;
+    }
+}
+
+
+#okBtn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: none;
+    background: linear-gradient(45deg, gold, orange, gold);
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px gold, 0 0 20px orange;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#okBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px gold, 0 0 30px orange, 0 0 40px red;
+}
+
 
 .games {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 12px;
-    padding: 12px;
+    gap: 22px;
+    padding: 0 12px;
+    padding-top: 30px;
+    font-size: auto;
 }
 
 .company-title,
@@ -206,7 +266,30 @@ body {
     width: 150px;
     border-radius: 15px;
     text-align: center;
-    padding: 6px;
+    padding: 8px;
+    position: relative;
+    z-index: 0;
+    background: #111;
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 5px #bf9a14, 0 0 5px #ffb300, 0 0 10px #f7ff15, 0 0 15px #b7a206;
+    animation: neonGlow 2s infinite alternate;
+}
+
+@keyframes neonGlow {
+    0% {
+        border-color: #00ffff;
+        box-shadow: 0 0 5px #00ffff, 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+    }
+
+    50% {
+        border-color: #ff00ff;
+        box-shadow: 0 0 5px #ff00ff, 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+    }
+
+    100% {
+        border-color: #ff0000;
+        box-shadow: 0 0 5px #ff0000, 0 0 5px #ff2a00, 0 0 10px #ff3700, 0 0 15px #ff2a00;
+    }
 }
 
 .img-border {
@@ -279,7 +362,8 @@ body {
 }
 
 .whatsapp,
-.telegram, .number {
+.telegram,
+.number {
     width: 70%;
     display: inline-block;
     margin-top: 6px;
@@ -300,22 +384,33 @@ body {
     box-shadow: 0 0 15px gold, 0 0 25px orange;
 }
 
+.number {
+    font-size: clamp(10px, 2.5vw, 13px);
+    white-space: nowrap;
+    color: black;
+    box-shadow: 0 0 8px #ffffff;
+    background: linear-gradient(45deg, #ffffff, #d8d8d8);
+}
+
+.number:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffffff, 0 0 25px #d0d0d0;
+}
+
 .telegram {
-        box-shadow: 0 0 8px #06b0f9;
-    background:linear-gradient(45deg,#37aee2, #0378aa ) ;
+    box-shadow: 0 0 8px #06b0f9;
+    background: linear-gradient(45deg, #37aee2, #0378aa);
 }
 
 .telegram:hover {
     transform: scale(1.1);
-box-shadow: 0 0 15px #37aee2, 0 0 25px #0088cc;
+    box-shadow: 0 0 15px #37aee2, 0 0 25px #0088cc;
 }
 
 
-
-/* POPULAR */
-
 .popular {
     padding: 10px;
+    padding-top: 30px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -327,7 +422,7 @@ box-shadow: 0 0 15px #37aee2, 0 0 25px #0088cc;
     overflow: hidden;
     width: 70%;
     position: relative;
-        background:
+    background:
         radial-gradient(circle at 20% 20%, #151515, #000),
         radial-gradient(circle at 80% 80%, #111, #000);
 }
@@ -379,7 +474,6 @@ box-shadow: 0 0 15px #37aee2, 0 0 25px #0088cc;
 
 }
 
-/* FOOTER */
 .footer {
     margin-top: 30px;
     padding: 30px 10px;
@@ -421,17 +515,27 @@ box-shadow: 0 0 15px #37aee2, 0 0 25px #0088cc;
         font-size: 18px;
     }
 
-    .carousel{
+    .carousel {
         padding-top: 20px;
     }
 }
 
 @media (max-width:768px) {
-        .slide img {
+    .slide img {
         max-width: 380px;
     }
 
-        .slide.left {
+    .modal-content {
+        padding: 20px 30px;
+        font-size: 18px;
+    }
+
+    #okBtn {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+
+    .slide.left {
         transform: translateX(-370px) scale(.8);
     }
 
@@ -451,8 +555,19 @@ box-shadow: 0 0 15px #37aee2, 0 0 25px #0088cc;
 
 @media (max-width:480px) {
 
+    .modal-content {
+        padding: 15px 20px;
+        font-size: 16px;
+        border-width: 3px;
+    }
+
+    #okBtn {
+        padding: 6px 15px;
+        font-size: 14px;
+    }
+
     .slide img {
-        max-width: 260px;
+        max-width: 290px;
     }
 
     .popular-slider {
@@ -466,11 +581,15 @@ box-shadow: 0 0 15px #37aee2, 0 0 25px #0088cc;
     .carousel {
         padding-top: 15px;
         padding-bottom: 15px;
-        height: 50vw;
+        height: 60vw;
     }
 
     .game {
         width: 110px;
+    }
+
+    .games {
+        padding-top: 15px;
     }
 
     .marquee {
@@ -478,11 +597,11 @@ box-shadow: 0 0 15px #37aee2, 0 0 25px #0088cc;
     }
 
     .slide.left {
-        transform: translateX(-70vw) scale(.8);
+        transform: translateX(-73vw) scale(.8);
     }
 
     .slide.right {
-        transform: translateX(70vw) scale(.8);
+        transform: translateX(73vw) scale(.8);
     }
 
     .slide.far-left {
